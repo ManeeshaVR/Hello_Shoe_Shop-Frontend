@@ -536,7 +536,179 @@
             </section>
 
             <!-- order -->
-            <section id="order"></section>
+            <section id="order">
+                <h1 class="text-4xl font-bold my-8">Orders</h1>
+                <div role="tablist" class="tabs tabs-boxed my-6">
+                    <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="New Order" checked/>
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+
+                        <div class="flex justify-between items-center my-3 px-4">
+                            <h3 class="text-2xl font-bold">Cart</h3>
+                            <button class="btn btn-primary" onclick="new_cart_item_form.showModal()">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M12 4.5v15m7.5-7.5h-15"/>
+                                </svg>
+                                Add Cart Item
+                            </button>
+                        </div>
+
+                        <div class="overflow-x-auto mb-4">
+                            <table id="cart_table" class="table">
+                                <!-- head -->
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Item</th>
+                                    <th>Size</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                        <dialog id="new_cart_item_form" class="modal">
+                            <div class="modal-box">
+                                <form method="dialog">
+                                    <button id="new_cart_item_form_close"
+                                            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕
+                                    </button>
+                                </form>
+                                <h1 class="text-2xl font-bold mb-2">Add Cart Item</h1>
+                                <div class="join mb-2">
+                                    <input class="input input-bordered join-item" id="order_item_search"
+                                           placeholder="Search"/>
+                                    <button class="btn join-item" id="order_item_search_btn">Search</button>
+                                </div>
+
+                                <div class="overflow-x-auto table-pin-rows h-48 mb-4">
+                                    <table id="add_cart_table" class="table">
+                                        <!-- head -->
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Verity</th>
+                                            <th>Gender</th>
+                                            <th>Price</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                                <div class="flex w-100 justify-between">
+                                    <div>
+                                        <select id="order_item_size" class="select select-bordered max-w-xs">
+                                            <option disabled selected value="">Size</option>
+                                            <option value="5">Size 5</option>
+                                            <option value="6">Size 6</option>
+                                            <option value="7">Size 7</option>
+                                            <option value="8">Size 8</option>
+                                            <option value="9">Size 9</option>
+                                            <option value="10">Size 10</option>
+                                            <option value="11">Size 11</option>
+                                        </select>
+                                        <input type="number" id="order_item_qty" placeholder="Qty"
+                                               class="input input-bordered" min="0"/>
+                                    </div>
+
+                                    <button id="cart_add_btn" class="btn btn-primary">Add</button>
+                                </div>
+                            </div>
+                        </dialog>
+
+                        <div class="flex justify-between w-100 items-center">
+                            <div>
+                                <span class="text-lg font-bold">Total : </span>
+                                <span id="total-amount" class="text-lg font-thin">Rs. 0.00</span>
+                            </div>
+                            <button id="checkout_btn_form" class="btn btn-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/>
+                                </svg>
+                                Proceed to Checkout
+                            </button>
+                        </div>
+
+                        <dialog id="checkout_form" class="modal">
+                            <div class="modal-box">
+                                <form method="dialog">
+                                    <button id="checkout_form_close"
+                                            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕
+                                    </button>
+                                </form>
+                                <h1 class="text-2xl font-bold mb-2">Checkout</h1>
+                                <h1 class="text-lg mb-2">Customer Details(Only Loyalty Customers)</h1>
+                                <div class="flex justify-around items-center my-8">
+                                    <input type="text" id="order_customer" placeholder="Enter Customer Contact"
+                                           class="input input-bordered" min="0"/>
+                                    <p id="order_customer_name" class="text-lg">-</p>
+                                </div>
+                                <h1 class="text-lg mb-2">Payment Details</h1>
+                                <div class="flex justify-around items-center my-8">
+                                    <h2 id="total" class="text-lg font-bold"></h2>
+                                    <div>
+                                        <select id="payment_method" class="select select-bordered max-w-xs">
+                                            <option disabled selected value="">Payment Method</option>
+                                            <option value="CASH">Cash</option>
+                                            <option value="CARD">Card</option>
+                                        </select>
+                                        <p class="text-error text-xs mt-2" id="payment_method_error"></p>
+                                    </div>
+                                </div>
+                                <div id="cash_method" class="hidden flex justify-around items-center my-8">
+                                    <input type="number" id="payment_amount" placeholder="Payment"
+                                           class="input input-bordered" min="0"/>
+                                    <input type="number" id="balance_amount" placeholder="Balance"
+                                           class="input input-bordered" min="0"/>
+                                </div>
+                                <div id="card_method" class="hidden flex justify-around items-center my-8">
+                                    <input type="text" placeholder="Bank Name" class="input input-bordered" min="0"/>
+                                    <input type="number" placeholder="Card Number" class="input input-bordered"
+                                           min="0"/>
+                                </div>
+                                <div class="flex justify-end">
+                                    <button id="checkout_btn" class="btn btn-primary">Checkout</button>
+                                </div>
+
+                            </div>
+                        </dialog>
+
+                    </div>
+
+                    <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Order List"/>
+                    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                        <h3 class="text-2xl font-bold mb-3">Orders List</h3>
+                        <div class="overflow-x-auto">
+                            <table id="order_table" class="table table-xs">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Total</th>
+                                    <th>Payment</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Total</th>
+                                    <th>Payment</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- employee -->
             <section id="employee"></section>

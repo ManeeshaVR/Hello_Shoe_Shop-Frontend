@@ -196,12 +196,14 @@
                     <div class="flex flex-col items-start gap-8 md:flex-row">
                         <div class="avatar">
                             <div class="w-96 rounded">
-                                <img id="product_img" src="https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg" />
+                                <img id="product_img"
+                                     src="https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg"/>
                             </div>
                         </div>
                         <div>
                             <h1 id="product_name" class="text-4xl font-extrabold mb-1">Nike Airforce</h1>
-                            <h3 id="product_supplier" class="text-lg font-thin mb-4">Nike Internationals pvt limited</h3>
+                            <h3 id="product_supplier" class="text-lg font-thin mb-4">Nike Internationals pvt
+                                limited</h3>
                             <h3 id="product_price" class="text-2xl font-semibold inline">
                                 Rs. 3000
                             </h3>
@@ -710,13 +712,51 @@
                 </div>
             </section>
 
-            <!-- employee -->
-            <section id="employee"></section>
+            <!-- refund -->
+            <section id="refund">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-4xl font-bold my-8">Refunds</h1>
+                    <div class="join">
+                        <input class="input input-bordered join-item" id="refund_orderId"
+                               placeholder="Enter Order Id"/>
+                        <button class="btn btn-primary join-item" id="refund_orderId_btn">Search</button>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table id="refund_table" class="table">
+                        <!-- head -->
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Qty</th>
+                            <th>Unit Price</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+
+                    </table>
+                </div>
+
+                <div class="flex justify-end gap-3">
+                    <input type="number" id="return_qty" placeholder="return qty"
+                           class="input input-bordered" min="0"/>
+                    <button id="refund_btn" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                        Refund
+                    </button>
+                </div>
+            </section>
 
 
 
-            <!-- supplier -->
-            <section id="supplier"></section>
 
         </main>
     </div>

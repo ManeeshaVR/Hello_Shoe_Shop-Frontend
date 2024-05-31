@@ -3,7 +3,7 @@ import {showToast} from "../util/toast.js";
 import {loadAllCustomers} from "./customerController.js";
 import {loadAllEmployees} from "./employeeController.js";
 import {loadAllInventories, loadInventorySuppliers} from "./inventoryController.js";
-import {loadAllProducts} from "./productsController.js";
+import {loadAllProducts} from "./productController.js";
 import {loadAllSuppliers} from "./supplierController.js";
 import {jwtDecode} from "jwt-decode";
 import {getAdminPanelData} from "../api/AdminPanel.js";

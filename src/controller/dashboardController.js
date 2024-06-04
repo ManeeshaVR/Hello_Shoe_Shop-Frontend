@@ -73,13 +73,13 @@ export function loadDashboardData(data) {
 let currentTheme = document.documentElement.getAttribute('data-theme');
 
 $('#theme_changer').click(function () {
-    let newTheme = currentTheme === 'sunset' ? 'winter' : 'sunset';
+    let newTheme = currentTheme === 'dracula' ? 'cmyk' : 'dracula';
     document.documentElement.setAttribute('data-theme', newTheme);
     currentTheme = newTheme;
 
     const moonIcon = $('#moon');
     const sunIcon = $('#sun');
-    if (currentTheme === 'sunset') {
+    if (currentTheme === 'dracula') {
         moonIcon.hide();
         sunIcon.show();
     } else {

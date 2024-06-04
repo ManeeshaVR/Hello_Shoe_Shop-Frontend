@@ -8,7 +8,7 @@ export default {
     require('daisyui'),
   ],
   daisyui: {
-    themes: ["sunset", "winter"],
+    themes: ["dracula", "cmyk"],
   },
   safelist: [
     'badge',
@@ -22,7 +22,10 @@ export default {
     'alert-error',
     'text-success',
     'mask',
-    'mask-squircle'
+    'mask-squircle',
+    'drawer-side',
+    'drawer-overlay',
+    'menu'
   ]
 }
 
